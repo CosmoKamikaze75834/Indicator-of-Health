@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e5aafda1a16cc4283e5862c2c84ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 149651385}
-  _health: {fileID: 2100006693}
+  Health: {fileID: 2100006693}
+  Slider: {fileID: 149651385}
 --- !u!1 &199482813
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,8 +759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdfe1f86d2cff2498d807f9148131f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2100006693}
-  _button: {fileID: 420464493}
+  Health: {fileID: 2100006693}
+  Button: {fileID: 420464493}
+  Amount: 25
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,8 +1001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49539ce037c008479aad4b84cb4dbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: {fileID: 2100006693}
   _text: {fileID: 834892923}
-  _health: {fileID: 2100006693}
 --- !u!1 &956055039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,8 +1416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6f735dcc8a8b4bb87aff930504ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 2100006693}
-  _button: {fileID: 1250730057}
+  Health: {fileID: 2100006693}
+  Button: {fileID: 1250730057}
+  Amount: 25
 --- !u!1 &1353272399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,8 +1753,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c6b4aecbf5094459b0ec94bf0586b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1709442481}
-  _health: {fileID: 2100006693}
+  Health: {fileID: 2100006693}
+  Slider: {fileID: 1709442481}
   _speed: 0.5
 --- !u!114 &1709442481
 MonoBehaviour:
@@ -1907,9 +1909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5757bd49a99315d47b3586a8489be917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _minHealth: 0
-  _maxHealth: 100
+  _current: 0
+  _min: 0
+  _max: 100
 --- !u!4 &2100006694
 Transform:
   m_ObjectHideFlags: 0

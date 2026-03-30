@@ -1,15 +1,19 @@
 using TMPro;
 using UnityEngine;
 
-public class TextIndicator : MonoBehaviour
+public class TextIndicator : BaseIndicator
 {
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private Health _health;
 
     private string _symbol = "/";
 
-    private void Update()
+    private void Start()
     {
-        _text.text = _health.CurrentHealth + _symbol + _health.MaxHealth;
+        UpdateValue();
+    }
+
+    public override void UpdateValue()
+    {
+        _text.text = Health.Current + _symbol + Health.Max;
     }
 }

@@ -3,39 +3,45 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private float _minHealth = 0;
-    [SerializeField] private float _maxHealth = 100;
+    [SerializeField] private float _current;
+    [SerializeField] private float _min = 0;
+    [SerializeField] private float _max = 100;
 
-    public float CurrentHealth => _currentHealth;
-    public float MaxHealth => _maxHealth;
+    public float Current => _current;
+    public float Max => _max;
 
-    private void Start()
+    public event Action HealthChanged;
+
+    private void Awake()
     {
-        _currentHealth = _maxHealth;
+        _current = _max;
     }
 
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
+        _current -= damage;
 
         ProcessState();
+
+        HealthChanged?.Invoke();
+    }
+
+    public void ApplyHeal(float amount)
+    {
+        _current += amount;
+
+        if (_current >= _max)
+            _current = _max;
+
+        HealthChanged?.Invoke();
     }
 
     private void ProcessState()
     {
-        if (_currentHealth <= _minHealth)
+        if (_current <= _min)
         {
-            _currentHealth = _minHealth;
+            _current = _min;
             return;
         }
-    }
-
-    public void Heal(float amount)
-    {
-        _currentHealth += amount;
-
-        if (_currentHealth >= _maxHealth)
-            _currentHealth = _maxHealth;
     }
 }

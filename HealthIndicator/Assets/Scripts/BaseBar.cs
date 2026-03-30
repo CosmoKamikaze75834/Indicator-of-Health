@@ -1,25 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BaseBar : MonoBehaviour
+public abstract class BaseBar : BaseIndicator
 {
-    [SerializeField] protected Slider _slider;
-    [SerializeField] protected Health _health;
-
-    protected float fullness;
+    [SerializeField] protected Slider Slider;
 
     private void Start()
     {
-        _slider.interactable = false;
-    }
-
-    private void Update()
-    {
+        Slider.interactable = false;
         UpdateValue();
-    }
-
-    public virtual void UpdateValue()
-    {
-        fullness = _health.CurrentHealth / _health.MaxHealth;
+        Slider.value = Fullness;
     }
 }

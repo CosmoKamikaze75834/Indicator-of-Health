@@ -4,10 +4,14 @@ public class SmoothHealthBar : BaseBar
 {
     [SerializeField] private float _speed;
 
+    private void Update()
+    {
+        float current = Mathf.MoveTowards(Slider.value, Fullness, _speed * Time.deltaTime);
+        Slider.value = current;
+    }
+
     public override void UpdateValue()
     {
         base.UpdateValue();
-        float current = Mathf.MoveTowards(_slider.value, fullness, _speed * Time.deltaTime);
-        _slider.value = current;
     }
 }
