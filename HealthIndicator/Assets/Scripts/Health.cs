@@ -5,8 +5,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float _min = 0;
 
-    [SerializeField] public float Current { get; private set; }
-    [SerializeField] public float Max { get; private set; } = 100;
+    [field: SerializeField] public float Current { get; private set; }
+    [field: SerializeField] public float Max { get; private set; } = 100;
 
     public event Action HealthChanged;
 
@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     {
         Current -= damage;
 
-        ProcessStateValidate();
+        LimitValues();
 
         HealthChanged?.Invoke();
     }
@@ -28,18 +28,13 @@ public class Health : MonoBehaviour
     {
         Current += amount;
 
-        if (Current >= Max)
-            Current = Max;
+        LimitValues();
 
         HealthChanged?.Invoke();
     }
 
-    private void ProcessStateValidate()
+    private void LimitValues()
     {
-        if (Current <= _min)
-        {
-            Current = _min;
-            return;
-        }
+        Current = Mathf.Clamp(Current, _min, Max);
     }
 }

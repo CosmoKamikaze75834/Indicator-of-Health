@@ -9,11 +9,11 @@ public class TextIndicator : BaseIndicator
 
     private void Start()
     {
-        UpdateValue();
+        UpdateValue(Health.Current, Health.Max);
     }
 
-    public override void UpdateValue()
+    protected override void UpdateValue(float current, float max)
     {
-        _text.text = Health.Current + _symbol + Health.Max;
+        _text.text = current + _symbol + max;
     }
 }

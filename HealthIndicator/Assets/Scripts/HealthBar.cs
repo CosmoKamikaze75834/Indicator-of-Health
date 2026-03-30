@@ -1,8 +1,8 @@
 public class HealthBar : BaseBar
 {
-    public override void UpdateValue()
+    protected override void UpdateValue(float current, float max)
     {
-        base.UpdateValue();
-        Slider.value = Fullness;
+        float currentHeal = current / max;
+        Slider.value = currentHeal;
     }
 }

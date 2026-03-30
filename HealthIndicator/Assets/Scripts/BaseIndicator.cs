@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class BaseIndicator : MonoBehaviour
+public abstract class BaseIndicator : MonoBehaviour
 {
     [SerializeField] protected Health Health;
-
-    protected float Fullness;
 
     private void OnEnable()
     {
@@ -16,8 +14,8 @@ public class BaseIndicator : MonoBehaviour
         Health.HealthChanged -= UpdateValue;
     }
 
-    public virtual void UpdateValue()
-    {
-        Fullness = Health.Current / Health.Max;
-    }
+    private void UpdateValue() =>
+        UpdateValue(Health.Current, Health.Max);
+
+    protected abstract void UpdateValue(float current, float max);
 }

@@ -8,7 +8,6 @@ public abstract class BaseBar : BaseIndicator
     private void Start()
     {
         Slider.interactable = false;
-        UpdateValue();
-        Slider.value = Fullness;
+        UpdateValue(Health.Current, Health.Max);
     }
 }
