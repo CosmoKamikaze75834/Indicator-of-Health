@@ -3,6 +3,6 @@ public class ButtonDamage : BaseButton
 {
     public override void ChangeHealth()
     {
-        Health.TakeDamage(Amount);
+        Health.Reduce(Amount);
     }
 }
